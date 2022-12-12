@@ -15,14 +15,14 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req,res) =>{
-  const email = req.body.email
-  const firstName = req.body.firstName
-  const lastName = req.body.lastName
+  var email = req.body.email
+  var firstName = req.body.firstName
+  var lastName = req.body.lastName
   // const classYear = req.body.classYear
   // const isMofo = req.body.mofo
   // const isStaff = req.body.staff 
 
-  email =  email.trim();
+  email = email.trim();
   firstName = firstName.trim().toLowerCase();
   firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
   lastName = lastName.trim().toLowerCase();
