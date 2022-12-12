@@ -3,5 +3,6 @@
 ## [1.0.0] - 2022-12-12
 ### Added
 - Initial codebase
-- A complete website to subscribe (only for DePauw students)
+- A complete project (only for DePauw student subscribers)
+- .env with API_KEY
 
