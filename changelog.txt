@@ -4,5 +4,5 @@
 ### Added
 - Initial codebase
 - A complete project (only for DePauw student subscribers)
-- .env with API_KEY
+- .env and .env.example files
 
