@@ -22,7 +22,13 @@ router.post("/", (req,res) =>{
   // const isMofo = req.body.mofo
   // const isStaff = req.body.staff 
 
-  if(!email.trim().endsWith("@depauw.edu")){
+  email =  email.trim();
+  firstName = firstName.trim().toLowerCase();
+  firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+  lastName = lastName.trim().toLowerCase();
+  lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
+
+  if(!email.endsWith("@depauw.edu")){
     res.sendFile(__dirname + "/failure.html");
   }else{
     const data = {
@@ -43,10 +49,11 @@ router.post("/", (req,res) =>{
     const jsonData = JSON.stringify(data);
   
     const url = process.env.URL
+    console.log(process.env.API_KEY + " " + process.env.URL)
   
     const options = {
       method: "POST",
-      auth: "duy24:" + process.env.API_KEY
+      auth: `duy24:${process.env.API_KEY}` 
     }
     const request = https.request(url, options, (response) =>  {
   
