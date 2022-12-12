@@ -17,47 +17,52 @@ router.post("/", (req,res) =>{
   const email = req.body.email
   const firstName = req.body.firstName
   const lastName = req.body.lastName
-  const classYear = req.body.classYear
+  // const classYear = req.body.classYear
+  // const isMofo = req.body.mofo
+  // const isStaff = req.body.staff 
 
-  const data = {
-    members: [
-      {
-        email_address: email,
-        status: "subscribed",
-        merge_fields: {
-          FNAME: firstName,
-          LNAME: lastName
+  if(!email.trim().endsWith("@depauw.edu")){
+    res.sendFile(__dirname + "/failure.html");
+  }else{
+    const data = {
+      members: [
+        {
+          email_address: email,
+          status: "subscribed",
+          merge_fields: {
+            FNAME: firstName,
+            LNAME: lastName
+          }
         }
-      }
-    ],
-    sync_tags: true,
-    update_existing: true
-  };
-
-  const jsonData = JSON.stringify(data);
-
-  const url = "https://us10.api.mailchimp.com/3.0/lists/c1f29de044"
-
-  const options = {
-    method: "POST",
-    auth: "duy24:87eade1fef632bd179f6f749e75e38b1-us10"
-  }
-  const request = https.request(url, options, (response) =>  {
-
-    if(response.statusCode === 200){
-      res.sendFile(__dirname + "/success.html")
-    }else{
-      res.sendFile(__dirname + "/failure.html")
+      ],
+      sync_tags: true,
+      update_existing: true
+    };
+  
+    const jsonData = JSON.stringify(data);
+  
+    const url = "https://us10.api.mailchimp.com/3.0/lists/c1f29de044"
+  
+    const options = {
+      method: "POST",
+      auth: "duy24:87eade1fef632bd179f6f749e75e38b1-us10"
     }
-
-    response.on("data", (data) => {
-      console.log(JSON.parse(data));
+    const request = https.request(url, options, (response) =>  {
+  
+      if(response.statusCode === 200){
+        res.sendFile(__dirname + "/success.html")
+      }else{
+        res.sendFile(__dirname + "/failure.html")
+      }
+  
+      response.on("data", (data) => {
+        console.log(JSON.parse(data));
+      })
     })
-  })
-  
-  request.write(jsonData);
-  request.end();
-  
+    
+    request.write(jsonData);
+    request.end();
+  }  
 });
 
 router.post("/failure", (req,res) =>{

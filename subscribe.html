@@ -62,17 +62,21 @@
     <!-- Custom styles for this template -->
     <link href="css/styles.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+  <body>
     <main class="form-signin w-100 m-auto">
       <form action="/" method="POST">
         <img class="mb-4" src="img/mofo-logo.png" alt="" width="300" height="">
-        <h1 class="fs-4 mb-4 fw-normal text-warning">Subscribe to MOFO Internship Spotlight</h1>
+        <h1 class="text-center fs-4 mb-4 fw-normal text-warning">Subscribe to MOFO Internship Spotlight</h1>
 
         <input type="text" name="firstName" class="form-control top" placeholder="First Name" required autofocus>
         <input type="text" name="lastName" class="form-control middle" placeholder="Last Name" required>
         <input type="email" name="email" class="form-control middle" placeholder="name@depauw.edu" required>
         <input type="number" min="2023" step="1" name="classYear"  class="form-control bottom" placeholder="Your Class" required>
-
+        <input type="checkbox" name="mofo">
+        <label for="mofo" class="text-white fs-6 fw-light">Are you a management fellow?</label><br>
+        <input type="checkbox" name="staff">
+        <label for="mofo" class="text-white fs-6 fw-light">Are you a DePauw staff?</label><br>
+        <p class="mb-4 fs-6 fw-normal text-danger">*Please use your DePauw email</p>
         <button class="w-100 btn btn-outline-warning" type="submit">Subscribe</button>
         
         <p class="mt-5 mb-3 text-muted">&copy; DePauw Management Fellows</p>

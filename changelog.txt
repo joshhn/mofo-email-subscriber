@@ -1,0 +1,7 @@
+# Changelog
+
+## [1.0.0] - 2022-12-12
+### Added
+- Initial codebase
+- A complete website to subscribe (only for DePauw students)
+
