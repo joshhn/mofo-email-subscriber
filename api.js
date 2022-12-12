@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
-const serverless = require("serverless-http");
 
 const app = express();
 const router = express.Router();
@@ -67,8 +66,9 @@ router.post("/failure", (req,res) =>{
 
 app.use("/",router);
 
-// app.listen(3000,() => {
-//   console.log("Server is running on port 3000")
-// });
 
-module.exports.handler = serverless(app);
+const port = process.env.PORT || 3000;
+
+app.listen(port,() => {
+  console.log(`Server is running on port ${port}`);
+});
