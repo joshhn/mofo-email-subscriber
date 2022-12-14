@@ -2,7 +2,7 @@
 
 
 
-A website for DePauw Management Fellows students subscribes to Internship Spotlight Newsletters on Mailchimp. Deployed on [Adaptable.io](https://adaptable.io/)
+A website for DePauw Management Fellows students to subscribe to Internship Spotlight Newsletters on Mailchimp. Deployed on [Adaptable.io](https://adaptable.io/)
 
 This website is used exclusively for Management Fellows students @ DePauw University, so it is not published. I've attached some photos below to show what the website looks like.
 
